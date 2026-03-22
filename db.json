@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "机械键盘",
+      "sku": "KB001",
+      "price": 299,
+      "stock": 15,
+      "alertThreshold": 5
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "productId": 1,
+      "type": "in",
+      "quantity": 50,
+      "remark": "采购入库",
+      "date": "2026-03-22T10:00:00Z"
+    }
+  ]
+}
