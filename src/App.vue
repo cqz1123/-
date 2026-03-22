@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div id="app">
+  <div>
     你好
     <router-view></router-view>
   </div>
