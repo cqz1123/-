@@ -7,7 +7,6 @@
         :default-active="activeMenu"
         class="sidebar-menu"
         router
-        :unique-opened="true"
       >
         <el-menu-item index="/admin/dashboard">
           <el-icon><HomeFilled /></el-icon>
