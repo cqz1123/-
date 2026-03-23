@@ -27,11 +27,11 @@ const router = createRouter({
           path: 'transactions',
           component: () => import('@/views/Transactions.vue')
         },
+      
       ]
     }
   ]
 })
-
 
 
 export default router
