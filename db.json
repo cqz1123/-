@@ -7,9 +7,25 @@
       "price": 299,
       "stock": 15,
       "alertThreshold": 5
+    },
+    {
+      "id": 2,
+      "name": "内存",
+      "sku": "KB002",
+      "price": 299,
+      "stock": 15,
+      "alertThreshold": 5
+    },
+    {
+      "id": 1,
+      "name": "鼠标",
+      "sku": "KB003",
+      "price": 299,
+      "stock": 15,
+      "alertThreshold": 5
     }
   ],
-  "transactions": [
+  "transactions-history": [
     {
       "id": 1,
       "productId": 1,
