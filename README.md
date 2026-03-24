@@ -48,3 +48,10 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+1.问题：json-server使用时3000端口被占用
+解决方法：在运行时通过--port参数指定其他端口
+
+```sh
+json-server --watch db.json --port 3001
+```
+
