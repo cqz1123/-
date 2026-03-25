@@ -38,19 +38,24 @@ const router = createRouter({
 
 // 路由守卫
 router.beforeEach((to, from) => {
+  // 处理直接访问子路由的情况，重定向到完整路径
+  if (to.path === '/dashboard' || to.path === '/products' || to.path === '/transactions') {
+    return '/admin' + to.path
+  }
+
   // 检查 localStorage 中是否存在 token
   const token = localStorage.getItem('inventory_token')
-  
+
   // 如果访问管理后台且未登录，跳转到登录页
   if (to.path.startsWith('/admin') && !token) {
     return '/login'
-  } 
-  
+  }
+
   // 如果已登录且访问登录页，跳转到管理后台
   if (to.path === '/login' && token) {
     return '/admin'
-  } 
-  
+  }
+
   // 其他情况正常跳转
   return true
 })

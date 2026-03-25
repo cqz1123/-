@@ -1,15 +1,15 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "机械键盘",
       "sku": "KB001",
       "price": 299,
-      "stock": 15,
+      "stock": 16,
       "alertThreshold": 5
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "内存",
       "sku": "KB002",
       "price": 299,
@@ -17,7 +17,7 @@
       "alertThreshold": 5
     },
     {
-      "id": 1,
+      "id": "1",
       "name": "鼠标",
       "sku": "KB003",
       "price": 299,
@@ -27,19 +27,28 @@
   ],
   "transactions-history": [
     {
-      "id": 1,
+      "id": "1",
       "productId": 1,
       "type": "in",
       "quantity": 50,
       "remark": "采购入库",
       "date": "2026-03-22T10:00:00Z"
+    },
+    {
+      "productId": "1",
+      "type": "in",
+      "quantity": 1,
+      "remark": "",
+      "date": "2026-03-24T12:04:34.256Z",
+      "id": "qSBOcOfVZGI"
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "admin",
       "password": "123456"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

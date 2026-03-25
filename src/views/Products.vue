@@ -10,8 +10,8 @@
     </div>
 
     <!-- 商品列表 -->
-    <div class="products-list">
-      <el-empty v-if="productStore.products.length === 0" description="暂无商品" />
+    <div class="products-list" v-loading="productStore.loading" element-loading-text="加载中...">
+      <el-empty v-if="!productStore.loading && productStore.products.length === 0" description="暂无商品" />
       <ProductCard
         v-for="product in productStore.products"
         :key="product.id"
@@ -22,9 +22,6 @@
         @on-card-click="handleCardClick"
       />
     </div>
-
-    <!-- 加载状态 -->
-    <el-loading v-if="productStore.loading" fullscreen text="加载中..." />
 
     <!-- 新增商品对话框 -->
     <AddProductDialog
