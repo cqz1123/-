@@ -23,6 +23,14 @@
       "price": 299,
       "stock": 15,
       "alertThreshold": 5
+    },
+    {
+      "name": "CPU",
+      "sku": "KB004",
+      "price": 100000,
+      "stock": 6,
+      "alertThreshold": 2,
+      "id": "32QS4WxweGs"
     }
   ],
   "transactions-history": [
@@ -73,6 +81,14 @@
       "remark": "",
       "date": "2026-03-25T07:28:44.457Z",
       "id": "hgR7wnuvQ7A"
+    },
+    {
+      "productId": "32QS4WxweGs",
+      "type": "out",
+      "quantity": 2,
+      "remark": "",
+      "date": "2026-03-25T08:07:43.688Z",
+      "id": "9RGZks2TNUg"
     }
   ],
   "users": [

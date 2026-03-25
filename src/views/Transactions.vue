@@ -147,16 +147,49 @@ const dateShortcuts = [
 ]
 
 // 计算交易记录与商品名称关联
-const transactionsWithProductName = computed(() => {
+const allTransactionsWithProductName = computed(() => {
   // 确保 transactions 是数组
   const transactions = Array.isArray(transactionStore.transactions) ? transactionStore.transactions : []
   return transactions.map(transaction => {
-    // 查找商品名称
-    const product = products.value.find(p => p.id === transaction.productId)
+    // 查找商品名称，使用宽松相等运算符处理类型不匹配的问题
+    const product = products.value.find(p => p.id == transaction.productId)
     return {
       ...transaction,
       productName: product ? product.name : `已删除商品 (ID: ${transaction.productId})`
     }
+  })
+})
+
+// 实时筛选交易记录
+const transactionsWithProductName = computed(() => {
+  return allTransactionsWithProductName.value.filter(transaction => {
+    // 商品ID筛选（处理类型不匹配的问题）
+    if (filterForm.value.productId) {
+      if (String(transaction.productId) !== String(filterForm.value.productId)) {
+        return false
+      }
+    }
+    
+    // 操作类型筛选
+    if (filterForm.value.type) {
+      if (transaction.type !== filterForm.value.type) {
+        return false
+      }
+    }
+    
+    // 时间范围筛选
+    if (filterForm.value.dateRange && filterForm.value.dateRange.length === 2) {
+      const transactionDate = new Date(transaction.date)
+      const startDate = new Date(filterForm.value.dateRange[0])
+      const endDate = new Date(filterForm.value.dateRange[1])
+      endDate.setHours(23, 59, 59, 999)
+      
+      if (transactionDate < startDate || transactionDate > endDate) {
+        return false
+      }
+    }
+    
+    return true
   })
 })
 
@@ -186,31 +219,9 @@ onMounted(async () => {
 
 // 处理搜索
 const handleSearch = async () => {
-  // 构建筛选参数
-  const params = {}
-  
-  // 商品ID筛选
-  if (filterForm.value.productId) {
-    params.productId = filterForm.value.productId
-  }
-  
-  // 操作类型筛选
-  if (filterForm.value.type) {
-    params.type = filterForm.value.type
-  }
-  
-  // 时间范围筛选
-  if (filterForm.value.dateRange && filterForm.value.dateRange.length === 2) {
-    // 开始日期（包含）
-    params['date_gte'] = new Date(filterForm.value.dateRange[0]).toISOString()
-    // 结束日期（包含）
-    const endDate = new Date(filterForm.value.dateRange[1])
-    endDate.setHours(23, 59, 59, 999)
-    params['date_lte'] = endDate.toISOString()
-  }
-  
-  // 发送请求
-  await transactionStore.fetchTransactions(params)
+  // 重新获取所有交易记录，确保数据是最新的
+  await transactionStore.fetchTransactions()
+  // 由于使用了 computed 属性实时筛选，不需要手动更新状态
 }
 
 // 重置筛选
@@ -222,8 +233,9 @@ const resetFilter = async () => {
     dateRange: []
   }
   
-  // 重新获取数据
+  // 重新获取所有数据，确保数据是最新的
   await transactionStore.fetchTransactions()
+  // 由于使用了 computed 属性实时筛选，不需要手动更新状态
 }
 
 
