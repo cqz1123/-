@@ -52,11 +52,13 @@ import StockDialog from '@/components/StockDialog.vue'
 
 // 导入 store 和 API
 import { useProductStore } from '@/stores/product'
+import { useTransactionStore } from '@/stores/transaction'
 import { transactionApi } from '@/api/modules/transaction'
 
 // 初始化
 const router = useRouter()
 const productStore = useProductStore()
+const transactionStore = useTransactionStore()
 
 // 对话框状态
 const showAddDialog = ref(false)
@@ -119,6 +121,9 @@ const handleStockSubmit = async (stockData) => {
       date: new Date().toISOString()
     }
     await transactionApi.addTransaction(transactionData)
+
+    // 3. 更新交易记录
+    await transactionStore.fetchTransactions()
 
     // 关闭对话框
     showStockDialog.value = false

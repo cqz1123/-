@@ -88,18 +88,7 @@
       </el-table-column>
     </el-table>
 
-    <!-- 分页 -->
-    <div class="pagination-section">
-      <el-pagination
-        v-model:current-page="transactionStore.pagination.page"
-        v-model:page-size="transactionStore.pagination.limit"
-        :page-sizes="[10, 20, 50]"
-        layout="total, sizes, prev, pager, next, jumper"
-        :total="transactionStore.pagination.total"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-      />
-    </div>
+
 
     <!-- 空状态 -->
     <el-empty v-if="!transactionStore.loading && transactionsWithProductName.length === 0" description="暂无交易记录" />
@@ -158,7 +147,7 @@ const dateShortcuts = [
 ]
 
 // 计算交易记录与商品名称关联
-  const transactionsWithProductName = computed(() => {
+const transactionsWithProductName = computed(() => {
   // 确保 transactions 是数组
   const transactions = Array.isArray(transactionStore.transactions) ? transactionStore.transactions : []
   return transactions.map(transaction => {
@@ -198,9 +187,7 @@ onMounted(async () => {
 // 处理搜索
 const handleSearch = async () => {
   // 构建筛选参数
-  const params = {
-    page: 1 // 重置到第一页
-  }
+  const params = {}
   
   // 商品ID筛选
   if (filterForm.value.productId) {
@@ -236,18 +223,10 @@ const resetFilter = async () => {
   }
   
   // 重新获取数据
-  await transactionStore.fetchTransactions({ page: 1 })
+  await transactionStore.fetchTransactions()
 }
 
-// 处理分页大小变化
-const handleSizeChange = async (size) => {
-  await transactionStore.fetchTransactions({ limit: size, page: 1 })
-}
 
-// 处理分页当前页变化
-const handleCurrentChange = async (current) => {
-  await transactionStore.fetchTransactions({ page: current })
-}
 
 // 处理删除
 const handleDelete = (id) => {

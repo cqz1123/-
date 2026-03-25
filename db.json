@@ -5,7 +5,7 @@
       "name": "机械键盘",
       "sku": "KB001",
       "price": 299,
-      "stock": 16,
+      "stock": 21,
       "alertThreshold": 5
     },
     {
@@ -13,7 +13,7 @@
       "name": "内存",
       "sku": "KB002",
       "price": 299,
-      "stock": 15,
+      "stock": 17,
       "alertThreshold": 5
     },
     {
@@ -41,6 +41,38 @@
       "remark": "",
       "date": "2026-03-24T12:04:34.256Z",
       "id": "qSBOcOfVZGI"
+    },
+    {
+      "productId": "1",
+      "type": "in",
+      "quantity": 1,
+      "remark": "",
+      "date": "2026-03-25T06:27:52.226Z",
+      "id": "cRJipIeuSD8"
+    },
+    {
+      "productId": "1",
+      "type": "in",
+      "quantity": 3,
+      "remark": "",
+      "date": "2026-03-25T06:55:42.329Z",
+      "id": "7kOI5gc775U"
+    },
+    {
+      "productId": "2",
+      "type": "in",
+      "quantity": 2,
+      "remark": "",
+      "date": "2026-03-25T07:07:10.293Z",
+      "id": "qoKFa5gcjLw"
+    },
+    {
+      "productId": "1",
+      "type": "in",
+      "quantity": 1,
+      "remark": "",
+      "date": "2026-03-25T07:28:44.457Z",
+      "id": "hgR7wnuvQ7A"
     }
   ],
   "users": [

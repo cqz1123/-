@@ -1,8 +1,8 @@
 import request from '../request'
 
 export const transactionApi = {
-  // 获取交易记录，支持分页、排序、筛选参数
-  getTransactions: (params) => {
+  // 获取交易记录，支持筛选参数
+  getTransactions: (params = {}) => {
     return request.get('/transactions-history', {
       params
     })

@@ -21,34 +21,14 @@ export const useTransactionStore = defineStore('transaction', {
       try {
         this.loading = true
         
-        // 合并默认参数和传入参数
-        const requestParams = {
-          _page: params.page || this.pagination.page,
-          _limit: params.limit || this.pagination.limit,
-          _sort: params._sort || 'date',
-          _order: params._order || 'desc',
-          ...params
-        }
-        
-        // 发送请求
-        const response = await transactionApi.getTransactions(requestParams)
+        // 直接获取所有交易记录，传递筛选参数
+        const response = await transactionApi.getTransactions(params)
         
         // 更新状态
         this.transactions = response.data
         
-        // 从响应头中获取总记录数（json-server 会在响应头中返回 X-Total-Count）
-        const totalCount = response.headers['x-total-count']
-        if (totalCount) {
-          this.pagination.total = parseInt(totalCount)
-        }
-        
-        // 更新分页信息
-        if (params.page) {
-          this.pagination.page = params.page
-        }
-        if (params.limit) {
-          this.pagination.limit = params.limit
-        }
+        // 更新总记录数
+        this.pagination.total = response.data.length
         
         return response.data
       } catch (error) {
