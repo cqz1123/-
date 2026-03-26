@@ -1,19 +1,11 @@
 {
   "products": [
     {
-      "id": "1",
-      "name": "机械键盘",
-      "sku": "KB001",
-      "price": 299,
-      "stock": 0,
-      "alertThreshold": 5
-    },
-    {
       "id": "2",
       "name": "内存",
       "sku": "KB002",
       "price": 299,
-      "stock": 17,
+      "stock": 15,
       "alertThreshold": 5
     },
     {
@@ -21,7 +13,7 @@
       "name": "鼠标",
       "sku": "KB003",
       "price": 299,
-      "stock": 15,
+      "stock": 17,
       "alertThreshold": 5
     },
     {
@@ -39,6 +31,14 @@
       "stock": 4,
       "alertThreshold": 0,
       "id": "cTXqX1nkEEo"
+    },
+    {
+      "name": "哈哈",
+      "sku": "11",
+      "price": 0.01,
+      "stock": 2,
+      "alertThreshold": 2,
+      "id": "Vp4KtRY2PW4"
     }
   ],
   "transactions-history": [
@@ -51,7 +51,7 @@
       "date": "2026-03-22T10:00:00Z"
     },
     {
-      "productId": "1",
+      "productId": null,
       "type": "in",
       "quantity": 1,
       "remark": "",
@@ -59,7 +59,7 @@
       "id": "qSBOcOfVZGI"
     },
     {
-      "productId": "1",
+      "productId": null,
       "type": "in",
       "quantity": 1,
       "remark": "",
@@ -67,7 +67,7 @@
       "id": "cRJipIeuSD8"
     },
     {
-      "productId": "1",
+      "productId": null,
       "type": "in",
       "quantity": 3,
       "remark": "",
@@ -83,7 +83,7 @@
       "id": "qoKFa5gcjLw"
     },
     {
-      "productId": "1",
+      "productId": null,
       "type": "in",
       "quantity": 1,
       "remark": "",
@@ -107,20 +107,28 @@
       "id": "Yf3PWK2ggTc"
     },
     {
-      "productId": "1",
-      "type": "out",
-      "quantity": 15,
-      "remark": "",
-      "date": "2026-03-26T05:58:26.178Z",
-      "id": "nySnUygi7YI"
-    },
-    {
       "productId": "cTXqX1nkEEo",
       "type": "in",
       "quantity": 4,
       "remark": "刚刚采购",
       "date": "2026-03-26T06:03:17.188Z",
       "id": "HFt74MXrzPc"
+    },
+    {
+      "productId": "2",
+      "type": "out",
+      "quantity": 2,
+      "remark": "",
+      "date": "2026-03-26T07:26:28.226Z",
+      "id": "3vewH8iEE7k"
+    },
+    {
+      "productId": "1",
+      "type": "in",
+      "quantity": 2,
+      "remark": "",
+      "date": "2026-03-26T07:26:32.517Z",
+      "id": "YggkCvFSXuI"
     }
   ],
   "users": [
