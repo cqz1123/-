@@ -49,8 +49,18 @@ import { computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { HomeFilled, Goods, TrendCharts, SwitchButton } from '@element-plus/icons-vue'
 
+// 导入 store
+import { useUserStore } from '@/stores/user'
+import { useProductStore } from '@/stores/product'
+import { useTransactionStore } from '@/stores/transaction'
+
 const router = useRouter()
 const route = useRoute()
+
+// 初始化 store
+const userStore = useUserStore()
+const productStore = useProductStore()
+const transactionStore = useTransactionStore()
 
 // 计算当前激活的菜单
 const activeMenu = computed(() => {
@@ -59,7 +69,17 @@ const activeMenu = computed(() => {
 
 // 处理退出登录
 const handleLogout = () => {
-  localStorage.removeItem('token')
+  // 清空用户信息和 token
+  userStore.logout()
+  
+  // 清空商品数据
+  productStore.products = []
+  
+  // 清空交易记录数据
+  transactionStore.transactions = []
+  transactionStore.pagination.total = 0
+  
+  // 跳转到登录页面
   router.push('/login')
 }
 </script>

@@ -5,7 +5,7 @@
       "name": "机械键盘",
       "sku": "KB001",
       "price": 299,
-      "stock": 21,
+      "stock": 0,
       "alertThreshold": 5
     },
     {
@@ -28,9 +28,17 @@
       "name": "CPU",
       "sku": "KB004",
       "price": 100000,
-      "stock": 6,
+      "stock": 1,
       "alertThreshold": 2,
       "id": "32QS4WxweGs"
+    },
+    {
+      "name": "火箭",
+      "sku": "KB0066",
+      "price": 0.01,
+      "stock": 4,
+      "alertThreshold": 0,
+      "id": "cTXqX1nkEEo"
     }
   ],
   "transactions-history": [
@@ -89,6 +97,30 @@
       "remark": "",
       "date": "2026-03-25T08:07:43.688Z",
       "id": "9RGZks2TNUg"
+    },
+    {
+      "productId": "32QS4WxweGs",
+      "type": "out",
+      "quantity": 5,
+      "remark": "",
+      "date": "2026-03-26T05:57:36.101Z",
+      "id": "Yf3PWK2ggTc"
+    },
+    {
+      "productId": "1",
+      "type": "out",
+      "quantity": 15,
+      "remark": "",
+      "date": "2026-03-26T05:58:26.178Z",
+      "id": "nySnUygi7YI"
+    },
+    {
+      "productId": "cTXqX1nkEEo",
+      "type": "in",
+      "quantity": 4,
+      "remark": "刚刚采购",
+      "date": "2026-03-26T06:03:17.188Z",
+      "id": "HFt74MXrzPc"
     }
   ],
   "users": [

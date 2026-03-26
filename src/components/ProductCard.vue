@@ -10,10 +10,11 @@
         <p class="price-text">价格：¥{{ product.price }}</p>
       </div>
       <div class="action-buttons">
-        <el-button type="primary" size="small" @click.stop="handleInStock">入库</el-button>
+        
+      </div>
+      <el-button type="primary" size="small" @click.stop="handleInStock">入库</el-button>
         <el-button type="warning" size="small" @click.stop="handleOutStock">出库</el-button>
         <el-button type="danger" size="small" @click.stop="handleDelete">删除</el-button>
-      </div>
     </div>
   </el-card>
 </template>
